@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Oct 21 21:02:13 2021
+# Process ID: 67003
+# Current directory: /home/varun/coding/projects/openpower/microwatt/microwatt-soc-minimal/microwatt-soc-minimal.runs/synth_1
+# Command line: vivado -log toplevel.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source toplevel.tcl
+# Log file: /home/varun/coding/projects/openpower/microwatt/microwatt-soc-minimal/microwatt-soc-minimal.runs/synth_1/toplevel.vds
+# Journal file: /home/varun/coding/projects/openpower/microwatt/microwatt-soc-minimal/microwatt-soc-minimal.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source toplevel.tcl -notrace

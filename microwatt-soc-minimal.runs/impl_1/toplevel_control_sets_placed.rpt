@@ -1,0 +1,200 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
+| Date         : Thu Oct 21 21:05:00 2021
+| Host         : varuns5600x running 64-bit Ubuntu 20.04.3 LTS
+| Command      : report_control_sets -verbose -file toplevel_control_sets_placed.rpt
+| Design       : toplevel
+| Device       : xc7a35ti
+-------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |   122 |
+|    Minimum number of control sets                        |   122 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   253 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |   122 |
+| >= 0 to < 4        |     2 |
+| >= 4 to < 6        |     8 |
+| >= 6 to < 8        |    17 |
+| >= 8 to < 10       |     6 |
+| >= 10 to < 12      |     2 |
+| >= 12 to < 14      |     5 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    82 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |            1212 |          494 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |            2243 |          812 |
+| Yes          | No                    | No                     |            3290 |         1311 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |            1954 |          735 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++---------------------------+-------------------------------------------------------------------+--------------------------------------------------------------------+------------------+----------------+--------------+
+|        Clock Signal       |                           Enable Signal                           |                          Set/Reset Signal                          | Slice Load Count | Bel Load Count | Bels / Slice |
++---------------------------+-------------------------------------------------------------------+--------------------------------------------------------------------+------------------+----------------+--------------+
+|  ext_clk_IBUF             |                                                                   |                                                                    |                1 |              2 |         2.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/icache_0/r[store_row][2]_i_1_n_0                   |                                                                    |                1 |              3 |         3.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/neg_result                               |                                                                    |                3 |              4 |         1.33 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/r_reg[intr_pending]_inv                  | soc0/processor/rst_fetch1                                          |                1 |              4 |         4.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/execute1_0/flush                                   | soc0/processor/rst_fetch1                                          |                3 |              4 |         1.33 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/loadstore1_0/r2[req][load]                         | soc0/processor/loadstore1_0/r2[use_second][7]_i_1_n_0              |                3 |              4 |         1.33 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/loadstore1_0/r2[req][load]                         | soc0/processor/loadstore1_0/r2[use_second][3]_i_1_n_0              |                2 |              4 |         2.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/with_fpu.fpu_0/p_9_in                              | soc0/processor/loadstore1_0/r3[srr1][14]_i_1_n_0                   |                1 |              4 |         4.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/with_fpu.fpu_0/r[old_exc]                          |                                                                    |                2 |              5 |         2.50 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/execute1_0/writeback_to_cr_file[write_xerc_enable] |                                                                    |                2 |              5 |         2.50 |
+|  ext_clk_IBUF             | reset_controller/E[0]                                             | reset_controller/clear                                             |                1 |              6 |         6.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/icache_0/r[store_index][5]_i_1_n_0                 | soc0/processor/icache_0/r[store_row][8]_i_1_n_0                    |                2 |              6 |         3.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/execute1_0/r_reg[intr_pending]_inv_0               | soc0/processor/rst_fetch1                                          |                2 |              6 |         3.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/mmu_0/p_12_in                                      |                                                                    |                3 |              6 |         2.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/mmu_0/r[shift]                                     |                                                                    |                4 |              6 |         1.50 |
+|  clkgen/pll/inst/clk_out1 | reset_controller/soc_rst                                          | reset_controller/soc_rst_cnt[4]_i_1_n_0                            |                1 |              6 |         6.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/dcache_0/soc_rst_cnt_reg[5]_inv_1                  |                                                                    |                4 |              6 |         1.50 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/dcache_0/r1[wb][adr][11]_i_1_n_0                   | soc0/processor/rst_fetch1                                          |                2 |              6 |         3.00 |
+|  clkgen/pll/inst/clk_out1 |                                                                   | soc0/processor/writeback_0/r[trace_next]                           |                3 |              6 |         2.00 |
+|  clkgen/pll/inst/clk_out1 |                                                                   | soc0/rst_core                                                      |                5 |              7 |         1.40 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/with_fpu.fpu_0/p_9_in                              | soc0/processor/with_fpu.fpu_0/i___116_n_0                          |                4 |              7 |         1.75 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/execute1_0/divider_0/E[0]                          | soc0/processor/execute1_0/divider_0/quot[7]_i_1_n_0                |                2 |              7 |         3.50 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/execute1_0/divider_0/dend[128]                     | soc0/processor/decode2_0/rst_fetch1_reg_3                          |                2 |              7 |         3.50 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/control_0/tag_regs_reg[2][wr_gpr]0       |                                                                    |                4 |              7 |         1.75 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/control_0/tag_regs_reg[1][wr_gpr]0       |                                                                    |                2 |              7 |         3.50 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/control_0/tag_regs[3][reg][6]_i_1_n_0    |                                                                    |                2 |              7 |         3.50 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/control_0/tag_regs[0][reg]               |                                                                    |                2 |              7 |         3.50 |
+|  clkgen/pll/inst/clk_out1 |                                                                   | soc0/processor/dcache_0/r1[forward_sel][7]_i_1_n_0                 |                2 |              8 |         4.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/debug_0/log_dmi_trigger[1]                         | soc0/processor/rst_fetch1                                          |                2 |              8 |         4.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/dcache_0/r0[req][data][55]_i_1_n_0                 | soc0/processor/dcache_0/r0[req][data][63]_i_1_n_0                  |                4 |              8 |         2.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/r_reg[e][insn_type][2]_4                 | soc0/processor/writeback_0/r[trace_next]                           |                3 |              8 |         2.67 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/execute1_0/WEBWE[0]                                | soc0/processor/rst_fetch1                                          |                2 |              9 |         4.50 |
+|  clkgen/pll/inst/clk_out1 |                                                                   | reset_controller/soc_rst                                           |                5 |              9 |         1.80 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/r_reg[e][insn_type][2]_6                 | soc0/processor/rst_fetch1                                          |                5 |             10 |         2.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/r_reg[e][insn_type][2]_5                 | soc0/processor/rst_fetch1                                          |                7 |             10 |         1.43 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/dcache_0/r0[req][dcbz]_i_2_n_0                     | soc0/processor/dcache_0/r0[req][dcbz]_i_1_n_0                      |                6 |             13 |         2.17 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/with_fpu.fpu_0/i___76_n_0                          |                                                                    |               11 |             13 |         1.18 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/with_fpu.fpu_0/i___74_n_0                          |                                                                    |                4 |             13 |         3.25 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/with_fpu.fpu_0/i___55_n_0                          |                                                                    |                4 |             13 |         3.25 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/with_fpu.fpu_0/i___177_n_0                         |                                                                    |                4 |             13 |         3.25 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/dcache_0/r1[wb][adr][31]_i_1_n_0                   | soc0/processor/rst_fetch1                                          |                7 |             20 |         2.86 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/icache_0/wb_sio_out[we]                            | soc0/processor/icache_0/FSM_sequential_slave_io_latch.state_reg[0] |                6 |             24 |         4.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/rst_fetch1_reg_2                         | soc0/processor/decode2_0/rst_fetch1_reg_10                         |               11 |             25 |         2.27 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/icache_0/r[store_index][5]_i_1_n_0                 | soc0/processor/rst_fetch1                                          |               11 |             26 |         2.36 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/dcache_0/soc_rst_cnt_reg[5]_inv_1                  | soc0/processor/dcache_0/soc_rst_cnt_reg[5]_inv_0                   |               10 |             26 |         2.60 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/r_reg[e][is_32bit]_rep_2                 | soc0/processor/rst_fetch1                                          |                9 |             30 |         3.33 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/execute1_0/r_reg[e][write_enable]_0[8]             |                                                                    |                8 |             32 |         4.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/rst_fetch1_reg_1[0]                      |                                                                    |               13 |             32 |         2.46 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/execute1_0/pmu_0/pmcs[2][31]_i_1_n_0               |                                                                    |               12 |             32 |         2.67 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/execute1_0/pmu_0/pmcs[6][31]_i_1_n_0               |                                                                    |                8 |             32 |         4.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/execute1_0/pmu_0/pmcs[3][31]_i_1_n_0               |                                                                    |               14 |             32 |         2.29 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/execute1_0/pmu_0/pmcs[4][31]_i_1_n_0               |                                                                    |               13 |             32 |         2.46 |
+|  clkgen/pll/inst/clk_out1 |                                                                   | soc0/gpio/wb_out[dat][31]_i_1_n_0                                  |               13 |             32 |         2.46 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/execute1_0/pmu_0/pmcs[5][31]_i_1_n_0               |                                                                    |               13 |             32 |         2.46 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/r_reg[e][insn][11]_0[0]                  | soc0/processor/rst_fetch1                                          |               11 |             32 |         2.91 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/loadstore1_0/r3[dsisr][31]_i_1_n_0                 | soc0/processor/rst_fetch1                                          |                7 |             32 |         4.57 |
+|  clkgen/pll/inst/clk_out1 | soc0/syscon0/soc_rst_cnt_reg[5]_inv_0                             |                                                                    |               10 |             32 |         3.20 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/r1[req][addr0]                           | soc0/processor/decode2_0/r_reg[e][is_32bit]_rep_1                  |                9 |             32 |         3.56 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/mmu_0/v[pid]                                       | soc0/rst_core                                                      |                8 |             32 |         4.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/syscon0/soc_rst_cnt_reg[5]_inv                               |                                                                    |               10 |             32 |         3.20 |
+|  clkgen/pll/inst/clk_out1 | soc0/gpio/reg_data                                                | soc0/rst_gpio                                                      |               10 |             32 |         3.20 |
+|  clkgen/pll/inst/clk_out1 | soc0/gpio/reg_dirn                                                | soc0/rst_gpio                                                      |                6 |             32 |         5.33 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/mmu_0/r[prtbl]                                     |                                                                    |               17 |             49 |         2.88 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/dcache_0/rams[1].way/E[0]                          |                                                                    |               28 |             53 |         1.89 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/with_fpu.fpu_0/i___77_n_0                          |                                                                    |               22 |             56 |         2.55 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/dcache_0/r0[req][data][55]_i_1_n_0                 |                                                                    |               17 |             56 |         3.29 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/mmu_0/r[pde][55]_i_1_n_0                           |                                                                    |               21 |             56 |         2.67 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/execute1_0/divider_0/dend[128]                     | soc0/processor/decode2_0/rst_fetch1_reg_9                          |               22 |             57 |         2.59 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/execute1_0/divider_0/E[0]                          | soc0/processor/decode2_0/SR[0]                                     |               12 |             57 |         4.75 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/dcache_0/reservation[addr]                         |                                                                    |               17 |             58 |         3.41 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/mmu_0/r[pgtbl0]                                    |                                                                    |               15 |             58 |         3.87 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/mmu_0/r[pgtbl3]                                    |                                                                    |               16 |             58 |         3.62 |
+|  clkgen/pll/inst/clk_out1 |                                                                   | soc0/processor/icache_0/rams[1].way/SR[0]                          |               15 |             62 |         4.13 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/loadstore1_0/E[0]                                  | soc0/processor/rst_fetch1                                          |               31 |             62 |         2.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/rst_fetch1_reg_0                         | soc0/processor/decode2_0/rst_fetch1_reg_6                          |               24 |             62 |         2.58 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/execute1_0/r[e][write_data][63]_i_1_n_0            | soc0/processor/rst_fetch1                                          |               55 |             63 |         1.15 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/dcache_0/r1[reload_tag]                            |                                                                    |               28 |             63 |         2.25 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/ctrl[cfar]                               |                                                                    |               33 |             63 |         1.91 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/r_reg[e][insn][18]_1[0]                  |                                                                    |               19 |             63 |         3.32 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/execute1_0/divider_0/dend[128]                     | soc0/processor/rst_fetch1                                          |               35 |             64 |         1.83 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/loadstore1_0/r3[load_data]                         |                                                                    |               29 |             64 |         2.21 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/mmu_0/r[ptcr][63]_i_1_n_0                          | soc0/rst_core                                                      |               17 |             64 |         3.76 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/loadstore1_0/r3[dar][63]_i_1_n_0                   | soc0/processor/rst_fetch1                                          |               22 |             64 |         2.91 |
+|  clkgen/pll/inst/clk_out1 |                                                                   | soc0/processor/execute1_0/divider_0/did_ovf                        |               25 |             64 |         2.56 |
+|  clkgen/pll/inst/clk_out1 |                                                                   | soc0/processor/mmu_0/itlb_valids0                                  |               22 |             64 |         2.91 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/mmu_0/r[iside]                                     |                                                                    |               17 |             64 |         3.76 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/icache_0/r[store_index][5]_i_1_n_0                 |                                                                    |               25 |             64 |         2.56 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/with_fpu.fpu_0/r[y]                                |                                                                    |               45 |             64 |         1.42 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/r_reg[e][insn][18]_2[0]                  |                                                                    |               21 |             64 |         3.05 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/rst_fetch1_reg                           | soc0/processor/decode2_0/r_reg[e][insn][16]_rep_1                  |               20 |             64 |         3.20 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/with_fpu.fpu_0/fpu_multiply_0/E[0]                 |                                                                    |               22 |             64 |         2.91 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/r_reg[e][insn][18]_0[0]                  |                                                                    |               15 |             64 |         4.27 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/v[div_in_progress]                       | soc0/processor/rst_fetch1                                          |               20 |             64 |         3.20 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/E[0]                                     |                                                                    |               27 |             64 |         2.37 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode1_0/s_reg[valid]_inv_0[0]                    |                                                                    |               20 |             65 |         3.25 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/loadstore1_0/r3[intr_vec]                          |                                                                    |               24 |             67 |         2.79 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/loadstore1_0/r1[req][addr]                         |                                                                    |               33 |             69 |         2.09 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/dcache_0/r0[req][dcbz]_i_2_n_0                     |                                                                    |               24 |             71 |         2.96 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/dcache_0/r1[wb][dat]                               |                                                                    |               32 |             72 |         2.25 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/icache_0/advance_nia                               |                                                                    |               48 |             95 |         1.98 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/r[is_sqrt]                               |                                                                    |               72 |            118 |         1.64 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/mmu_0/rst_fetch1_reg                               |                                                                    |               32 |            126 |         3.94 |
+|  clkgen/pll/inst/clk_out1 |                                                                   | soc0/processor/dcache_0/dtlb_valids_reg[0]0                        |               67 |            128 |         1.91 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/dcache_0/r1[req][op]                               |                                                                    |               47 |            132 |         2.81 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/execute1_0/p_74_in                                 | soc0/processor/rst_fetch1                                          |               47 |            154 |         3.28 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/execute1_0/E[0]                                    | soc0/processor/rst_fetch1                                          |               54 |            161 |         2.98 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode1_0/r[stop_mark]                             | soc0/processor/rst_fetch1                                          |               55 |            161 |         2.93 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/dcache_0/maybe_plrus.plrus[43].plru/p_0_in2_out[0] |                                                                    |               45 |            176 |         3.91 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/dcache_0/maybe_plrus.plrus[43].plru/p_0_in2_out[1] |                                                                    |               44 |            176 |         4.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/icache_0/maybe_plrus.plrus[51].plru/p_0_in2_out[1] |                                                                    |               45 |            178 |         3.96 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/icache_0/maybe_plrus.plrus[51].plru/p_0_in2_out[0] |                                                                    |               45 |            178 |         3.96 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/dcache_0/r0_full0                                  |                                                                    |               70 |            205 |         2.93 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/r1[req][addr0]                           |                                                                    |               88 |            207 |         2.35 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/writeback_0/r_reg[e][write_enable]                 |                                                                    |               65 |            258 |         3.97 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/writeback_0/r_reg[e][write_enable]_0               |                                                                    |               65 |            258 |         3.97 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/dcache_0/dtlb_tags_reg_0_63_0_2_i_4_n_0            |                                                                    |               68 |            272 |         4.00 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/with_fpu.fpu_0/p_9_in                              |                                                                    |              156 |            320 |         2.05 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/loadstore1_0/r2[req][load]                         |                                                                    |              110 |            321 |         2.92 |
+|  clkgen/pll/inst/clk_out1 | soc0/processor/decode2_0/r_reg[e][valid]0                         | soc0/processor/execute1_0/r[e][valid]                              |              161 |            377 |         2.34 |
+|  clkgen/pll/inst/clk_out1 |                                                                   | soc0/processor/rst_fetch1                                          |              364 |            839 |         2.30 |
+|  clkgen/pll/inst/clk_out1 |                                                                   | soc0/processor/mmu_0/p_3_out                                       |              291 |           1024 |         3.52 |
+|  clkgen/pll/inst/clk_out1 |                                                                   |                                                                    |              493 |           1210 |         2.45 |
++---------------------------+-------------------------------------------------------------------+--------------------------------------------------------------------+------------------+----------------+--------------+
+
+
