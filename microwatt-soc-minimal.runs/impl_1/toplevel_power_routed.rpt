@@ -1,13 +1,13 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date             : Thu Oct 21 21:05:41 2021
-| Host             : varuns5600x running 64-bit Ubuntu 20.04.3 LTS
+| Date             : Thu Mar  3 09:33:00 2022
+| Host             : varuns5600x running 64-bit Ubuntu 20.04.4 LTS
 | Command          : report_power -file toplevel_power_routed.rpt -pb toplevel_power_summary_routed.pb -rpx toplevel_power_routed.rpx
 | Design           : toplevel
-| Device           : xc7a35ticsg324-1L
+| Device           : xc7a100tcsg324-1
 | Design State     : routed
-| Grade            : industrial
+| Grade            : commercial
 | Process          : typical
 | Characterization : Production
 ----------------------------------------------------------------------------------------------------------------------------------------------
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.233        |
+| Total On-Chip Power (W)  | 0.276        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.171        |
-| Device Static (W)        | 0.062        |
-| Effective TJA (C/W)      | 4.8          |
-| Max Ambient (C)          | 98.9         |
-| Junction Temperature (C) | 26.1         |
+| Dynamic (W)              | 0.178        |
+| Device Static (W)        | 0.098        |
+| Effective TJA (C/W)      | 4.6          |
+| Max Ambient (C)          | 83.7         |
+| Junction Temperature (C) | 26.3         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,21 +52,21 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.018 |        5 |       --- |             --- |
-| Slice Logic              |     0.010 |    30523 |       --- |             --- |
-|   LUT as Logic           |     0.009 |    16013 |     20800 |           76.99 |
-|   CARRY4                 |    <0.001 |      609 |      8150 |            7.47 |
-|   LUT as Distributed RAM |    <0.001 |     1622 |      9600 |           16.90 |
-|   Register               |    <0.001 |     8699 |     41600 |           20.91 |
-|   F7/F8 Muxes            |    <0.001 |      782 |     32600 |            2.40 |
+| Clocks                   |     0.021 |        5 |       --- |             --- |
+| Slice Logic              |     0.011 |    30523 |       --- |             --- |
+|   LUT as Logic           |     0.010 |    16008 |     63400 |           25.25 |
+|   CARRY4                 |    <0.001 |      609 |     15850 |            3.84 |
+|   LUT as Distributed RAM |    <0.001 |     1622 |     19000 |            8.54 |
+|   Register               |    <0.001 |     8699 |    126800 |            6.86 |
+|   F7/F8 Muxes            |    <0.001 |      782 |     63400 |            1.23 |
 |   Others                 |     0.000 |      261 |       --- |             --- |
-| Signals                  |     0.014 |    24834 |       --- |             --- |
-| Block RAM                |     0.017 |       15 |        50 |           30.00 |
-| MMCM                     |     0.106 |        1 |         5 |           20.00 |
-| DSPs                     |     0.005 |       32 |        90 |           35.56 |
+| Signals                  |     0.016 |    24836 |       --- |             --- |
+| Block RAM                |     0.018 |       15 |       135 |           11.11 |
+| MMCM                     |     0.106 |        1 |         6 |           16.67 |
+| DSPs                     |     0.006 |       32 |       240 |           13.33 |
 | I/O                      |    <0.001 |       10 |       210 |            4.76 |
-| Static Power             |     0.062 |          |           |                 |
-| Total                    |     0.233 |          |           |                 |
+| Static Power             |     0.098 |          |           |                 |
+| Total                    |     0.276 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -76,19 +76,19 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       0.950 |     0.074 |       0.068 |      0.006 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.070 |       0.059 |      0.011 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.087 |       0.072 |      0.016 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.077 |       0.059 |      0.018 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.004 |       0.000 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       0.950 |     0.001 |       0.001 |      0.000 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.001 |       0.001 |      0.001 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccadc    |       1.800 |     0.018 |       0.000 |      0.018 |       NA    | Unspecified | NA         |
+| Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 
 
@@ -116,7 +116,7 @@ Table of Contents
 
 +-----------------------+--------------------------+
 | Ambient Temp (C)      | 25.0                     |
-| ThetaJA (C/W)         | 4.8                      |
+| ThetaJA (C/W)         | 4.6                      |
 | Airflow (LFM)         | 250                      |
 | Heat Sink             | medium (Medium Profile)  |
 | ThetaSA (C/W)         | 4.6                      |
@@ -147,23 +147,23 @@ Table of Contents
 +-----------------------+-----------+
 | Name                  | Power (W) |
 +-----------------------+-----------+
-| toplevel              |     0.171 |
+| toplevel              |     0.178 |
 |   clkgen              |     0.106 |
 |     pll               |     0.106 |
 |       inst            |     0.106 |
-|   soc0                |     0.064 |
-|     processor         |     0.063 |
-|       dcache_0        |     0.013 |
+|   soc0                |     0.071 |
+|     processor         |     0.070 |
+|       dcache_0        |     0.014 |
 |       debug_0         |     0.009 |
 |       decode1_0       |     0.001 |
-|       decode2_0       |     0.002 |
-|       execute1_0      |     0.010 |
+|       decode2_0       |     0.003 |
+|       execute1_0      |     0.011 |
 |       fetch1_0        |     0.005 |
 |       icache_0        |     0.006 |
 |       loadstore1_0    |     0.003 |
 |       mmu_0           |     0.002 |
 |       register_file_0 |     0.001 |
-|       with_fpu.fpu_0  |     0.012 |
+|       with_fpu.fpu_0  |     0.013 |
 +-----------------------+-----------+
 
 

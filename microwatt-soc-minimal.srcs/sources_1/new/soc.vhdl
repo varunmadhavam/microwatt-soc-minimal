@@ -61,7 +61,9 @@ entity soc is
         gpio_out : out std_ulogic_vector(NGPIO - 1 downto 0);
         gpio_dir : out std_ulogic_vector(NGPIO - 1 downto 0);
         gpio_in  : in  std_ulogic_vector(NGPIO - 1 downto 0) := (others => '0');
-
+        
+        --ADDHERE
+        
 	-- DRAM controller signals
 	alt_reset    : in std_ulogic := '0'
 	);
@@ -104,7 +106,9 @@ architecture behaviour of soc is
     signal wb_gpio_in    : wb_io_master_out;
     signal wb_gpio_out   : wb_io_slave_out;
     signal gpio_intr     : std_ulogic := '0';
-
+    
+    --ADDHERE
+    
     -- Main memory signals:
     signal wb_bram_in     : wishbone_master_out;
     signal wb_bram_out    : wishbone_slave_out;
@@ -140,7 +144,7 @@ architecture behaviour of soc is
     -- IO branch split:
     type slave_io_type is (SLAVE_IO_SYSCON,
                            SLAVE_IO_GPIO,
-                           SLAVE_IO_NONE);
+                           SLAVE_IO_NONE); --ADDHERE
     signal slave_io_dbg : slave_io_type;
 
     function wishbone_widen_data(wb : wb_io_master_out) return wishbone_master_out is
@@ -442,7 +446,7 @@ begin
             
     -- IO wishbone slave intercon.
     --
-    slave_io_intercon: process(wb_sio_out, wb_syscon_out)
+    slave_io_intercon: process(wb_sio_out, wb_syscon_out,wb_gpio_out)--ADDHERE
 	variable slave_io : slave_io_type;
         variable match : std_ulogic_vector(31 downto 12);
         variable ext_valid : boolean;
@@ -453,22 +457,25 @@ begin
        match := "11" & wb_sio_out.adr(29 downto 12);
 	if std_match(match, x"C0000") then
 	    slave_io := SLAVE_IO_SYSCON;
-    elsif std_match(match, x"C0007") then
+    elsif std_match(match, x"C0007") then --ADDHERE
             slave_io := SLAVE_IO_GPIO;
 	end if;
         slave_io_dbg <= slave_io;
+        
+        --ADDHERE
+        
         wb_gpio_in <= wb_sio_out;
         wb_gpio_in.cyc <= '0';
 
-	wb_syscon_in <= wb_sio_out;
-	wb_syscon_in.cyc <= '0';
-
+	    wb_syscon_in <= wb_sio_out;
+	    wb_syscon_in.cyc <= '0';
+ 
         -- Default response, ack & return all 1's
         wb_sio_in.dat <= (others => '1');
         wb_sio_in.ack <= wb_sio_out.stb and wb_sio_out.cyc;
         wb_sio_in.stall <= '0';
 
-	case slave_io is
+	case slave_io is --ADDHERE
 	when SLAVE_IO_SYSCON =>
 	    wb_syscon_in.cyc <= wb_sio_out.cyc;
 	    wb_sio_in <= wb_syscon_out;
@@ -533,5 +540,7 @@ begin
                 wishbone_in => wb_bram_in,
                 wishbone_out => wb_bram_out
                 );
+                
+      --ADDHERE
 
 end architecture behaviour;

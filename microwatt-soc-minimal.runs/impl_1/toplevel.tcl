@@ -124,9 +124,9 @@ set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 3
 OPTRACE "create in-memory project" START { }
-  create_project -in_memory -part xc7a35ticsg324-1L
+  create_project -in_memory -part xc7a100tcsg324-1
   set_property board_part_repo_paths {/home/varun/.Xilinx/Vivado/2020.2/xhub/board_store/xilinx_board_store} [current_project]
-  set_property board_part digilentinc.com:arty-a7-35:part0:1.0 [current_project]
+  set_property board_part digilentinc.com:arty-a7-100:part0:1.0 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
@@ -145,7 +145,7 @@ OPTRACE "read constraints: implementation" START { }
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }
-  link_design -top toplevel -part xc7a35ticsg324-1L
+  link_design -top toplevel -part xc7a100tcsg324-1
 OPTRACE "link_design" END { }
 OPTRACE "gray box cells" START { }
 OPTRACE "gray box cells" END { }

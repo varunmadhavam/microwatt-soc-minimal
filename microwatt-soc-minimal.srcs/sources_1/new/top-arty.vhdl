@@ -34,7 +34,7 @@ entity toplevel is
         -- GPIO
         led        : out std_ulogic_vector(3 downto 0);
         sw         :  in  std_ulogic_vector(3 downto 0)
-
+        --ADDHERE
         );
 end entity toplevel;
 
@@ -50,7 +50,8 @@ architecture behaviour of toplevel is
     signal gpio_in     : std_ulogic_vector(NGPIO - 1 downto 0);
     signal gpio_out    : std_ulogic_vector(NGPIO - 1 downto 0);
     signal gpio_dir    : std_ulogic_vector(NGPIO - 1 downto 0);
-
+    
+    --ADDHERE
     
     constant BRAM_SIZE    : natural := MEMORY_SIZE;
     constant PAYLOAD_SIZE : natural := 0;
@@ -92,6 +93,8 @@ begin
             gpio_out          => gpio_out,
             gpio_dir          => gpio_dir,
 
+            --ADDHERE
+            
             alt_reset         => '0'
             );
 
@@ -132,5 +135,6 @@ clkgen: entity work.clock_generator
     led(2) <= gpio_out(2) when gpio_dir(2) = '1' else 'Z';
     led(3) <= gpio_out(3) when gpio_dir(3) = '1' else 'Z';
 
-
+    --ADDHERE
+    
 end architecture behaviour;

@@ -1,0 +1,16 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
+| Date         : Tue Mar  1 08:26:11 2022
+| Host         : varuns5600x running 64-bit Ubuntu 20.04.4 LTS
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'clk_wiz_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of clk_wiz_0 (xilinx.com:ip:clk_wiz:6.0 (Rev. 6)) to Vivado generation flows.
+

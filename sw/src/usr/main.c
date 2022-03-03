@@ -16,11 +16,15 @@ typedef struct {
 #define GPIO ((gpio_type*)GPIO_BASE)
 
 int main() {
-	GPIO->DIR=0x1;
+	GPIO->DIR=0xF;
 	while(1){
-		GPIO->DATA_OUT=0x0;
-		wait();
 		GPIO->DATA_OUT=0x1;
+		wait();
+		GPIO->DATA_OUT=0x2;
+		wait();
+		GPIO->DATA_OUT=0x4;
+		wait();
+		GPIO->DATA_OUT=0x8;
 		wait();
 	}
  return 0;

@@ -25,52 +25,54 @@ Linker script and memory map
                 0x0000000000000f84                wait
  .text          0x0000000000000fbc        0x0 build/crt0.o
 
-.sfpr           0x0000000000000fbc       0x14
- .sfpr          0x0000000000000fbc       0x14 linker stubs
-                0x0000000000000fbc                _savegpr0_29
-                0x0000000000000fc0                _savegpr0_30
-                0x0000000000000fc4                _savegpr0_31
+.sfpr           0x0000000000000fbc       0x1c
+ .sfpr          0x0000000000000fbc       0x1c linker stubs
+                0x0000000000000fbc                _savegpr0_27
+                0x0000000000000fc0                _savegpr0_28
+                0x0000000000000fc4                _savegpr0_29
+                0x0000000000000fc8                _savegpr0_30
+                0x0000000000000fcc                _savegpr0_31
 
-.glink          0x0000000000000fd0        0x0
- .glink         0x0000000000000fd0        0x0 linker stubs
- .glink         0x0000000000000fd0        0x0 linker stubs
+.glink          0x0000000000000fd8        0x0
+ .glink         0x0000000000000fd8        0x0 linker stubs
+ .glink         0x0000000000000fd8        0x0 linker stubs
 
-.text.startup   0x0000000000000fd0       0x50
- .text.startup  0x0000000000000fd0       0x50 build/main.o
-                0x0000000000000fd0                main
+.text.startup   0x0000000000000fd8       0x68
+ .text.startup  0x0000000000000fd8       0x68 build/main.o
+                0x0000000000000fd8                main
 
-.eh_frame       0x0000000000001020        0x0
- .eh_frame      0x0000000000001020        0x0 linker stubs
+.eh_frame       0x0000000000001040        0x0
+ .eh_frame      0x0000000000001040        0x0 linker stubs
 
-.eh_frame       0x0000000000001020       0x4c
- .eh_frame      0x0000000000001020       0x4c build/main.o
+.eh_frame       0x0000000000001040       0x50
+ .eh_frame      0x0000000000001040       0x50 build/main.o
 
-.rela.dyn       0x0000000000001070        0x0
- .rela.iplt     0x0000000000001070        0x0 linker stubs
+.rela.dyn       0x0000000000001090        0x0
+ .rela.iplt     0x0000000000001090        0x0 linker stubs
 
-.data           0x000000000000106c        0x0
+.data           0x0000000000001090        0x0
  *(.data)
- .data          0x000000000000106c        0x0 build/main.o
- .data          0x000000000000106c        0x0 build/crt0.o
+ .data          0x0000000000001090        0x0 build/main.o
+ .data          0x0000000000001090        0x0 build/crt0.o
 
-.branch_lt      0x0000000000001070        0x0
- .branch_lt     0x0000000000001070        0x0 linker stubs
- .branch_lt     0x0000000000001070        0x0 linker stubs
+.branch_lt      0x0000000000001090        0x0
+ .branch_lt     0x0000000000001090        0x0 linker stubs
+ .branch_lt     0x0000000000001090        0x0 linker stubs
 
-.bss            0x0000000000001070        0x0
+.bss            0x0000000000001090        0x0
  *(.bss)
- .bss           0x0000000000001070        0x0 build/main.o
- .bss           0x0000000000001070        0x0 build/crt0.o
+ .bss           0x0000000000001090        0x0 build/main.o
+ .bss           0x0000000000001090        0x0 build/crt0.o
 LOAD build/main.o
 LOAD build/crt0.o
 OUTPUT(build/firmware.elf elf64-powerpcle)
 
-.iplt           0x0000000000001070        0x0
- .iplt          0x0000000000001070        0x0 linker stubs
+.iplt           0x0000000000001090        0x0
+ .iplt          0x0000000000001090        0x0 linker stubs
 
-.debug_info     0x0000000000000000      0x178
- .debug_info    0x0000000000000000      0x14a build/main.o
- .debug_info    0x000000000000014a       0x2e build/crt0.o
+.debug_info     0x0000000000000000      0x192
+ .debug_info    0x0000000000000000      0x164 build/main.o
+ .debug_info    0x0000000000000164       0x2e build/crt0.o
 
 .debug_abbrev   0x0000000000000000       0xe1
  .debug_abbrev  0x0000000000000000       0xcd build/main.o
@@ -90,9 +92,9 @@ OUTPUT(build/firmware.elf elf64-powerpcle)
  .debug_macro   0x0000000000000030      0x85c build/main.o
  .debug_macro   0x000000000000088c      0x34e build/main.o
 
-.debug_line     0x0000000000000000      0x204
- .debug_line    0x0000000000000000      0x186 build/main.o
- .debug_line    0x0000000000000186       0x7e build/crt0.o
+.debug_line     0x0000000000000000      0x239
+ .debug_line    0x0000000000000000      0x1bb build/main.o
+ .debug_line    0x00000000000001bb       0x7e build/crt0.o
 
 .debug_str      0x0000000000000000     0x3255
  .debug_str     0x0000000000000000     0x3238 build/main.o

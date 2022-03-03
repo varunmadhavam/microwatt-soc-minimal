@@ -1,11 +1,11 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Thu Oct 21 21:04:09 2021
-| Host         : varuns5600x running 64-bit Ubuntu 20.04.3 LTS
+| Date         : Thu Mar  3 09:31:25 2022
+| Host         : varuns5600x running 64-bit Ubuntu 20.04.4 LTS
 | Command      : report_utilization -file toplevel_utilization_synth.rpt -pb toplevel_utilization_synth.pb
 | Design       : toplevel
-| Device       : 7a35ticsg324-1L
+| Device       : 7a100tcsg324-1
 | Design State : Synthesized
 -----------------------------------------------------------------------------------------------------------
 
@@ -30,16 +30,16 @@ Table of Contents
 +----------------------------+-------+-------+-----------+-------+
 |          Site Type         |  Used | Fixed | Available | Util% |
 +----------------------------+-------+-------+-----------+-------+
-| Slice LUTs*                | 18087 |     0 |     20800 | 86.96 |
-|   LUT as Logic             | 16465 |     0 |     20800 | 79.16 |
-|   LUT as Memory            |  1622 |     0 |      9600 | 16.90 |
+| Slice LUTs*                | 18087 |     0 |     63400 | 28.53 |
+|   LUT as Logic             | 16465 |     0 |     63400 | 25.97 |
+|   LUT as Memory            |  1622 |     0 |     19000 |  8.54 |
 |     LUT as Distributed RAM |  1622 |     0 |           |       |
 |     LUT as Shift Register  |     0 |     0 |           |       |
-| Slice Registers            |  8699 |     0 |     41600 | 20.91 |
-|   Register as Flip Flop    |  8699 |     0 |     41600 | 20.91 |
-|   Register as Latch        |     0 |     0 |     41600 |  0.00 |
-| F7 Muxes                   |   611 |     0 |     16300 |  3.75 |
-| F8 Muxes                   |   171 |     0 |      8150 |  2.10 |
+| Slice Registers            |  8699 |     0 |    126800 |  6.86 |
+|   Register as Flip Flop    |  8699 |     0 |    126800 |  6.86 |
+|   Register as Latch        |     0 |     0 |    126800 |  0.00 |
+| F7 Muxes                   |   611 |     0 |     31700 |  1.93 |
+| F8 Muxes                   |   171 |     0 |     15850 |  1.08 |
 +----------------------------+-------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
@@ -69,10 +69,10 @@ Table of Contents
 +-------------------+------+-------+-----------+-------+
 |     Site Type     | Used | Fixed | Available | Util% |
 +-------------------+------+-------+-----------+-------+
-| Block RAM Tile    |   15 |     0 |        50 | 30.00 |
-|   RAMB36/FIFO*    |   14 |     0 |        50 | 28.00 |
+| Block RAM Tile    |   15 |     0 |       135 | 11.11 |
+|   RAMB36/FIFO*    |   14 |     0 |       135 | 10.37 |
 |     RAMB36E1 only |   14 |       |           |       |
-|   RAMB18          |    2 |     0 |       100 |  2.00 |
+|   RAMB18          |    2 |     0 |       270 |  0.74 |
 |     RAMB18E1 only |    2 |       |           |       |
 +-------------------+------+-------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
@@ -84,7 +84,7 @@ Table of Contents
 +----------------+------+-------+-----------+-------+
 |    Site Type   | Used | Fixed | Available | Util% |
 +----------------+------+-------+-----------+-------+
-| DSPs           |   32 |     0 |        90 | 35.56 |
+| DSPs           |   32 |     0 |       240 | 13.33 |
 |   DSP48E1 only |   32 |       |           |       |
 +----------------+------+-------+-----------+-------+
 
@@ -97,15 +97,15 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 | Bonded IOB                  |   10 |     0 |       210 |  4.76 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
-| PHY_CONTROL                 |    0 |     0 |         5 |  0.00 |
-| PHASER_REF                  |    0 |     0 |         5 |  0.00 |
-| OUT_FIFO                    |    0 |     0 |        20 |  0.00 |
-| IN_FIFO                     |    0 |     0 |        20 |  0.00 |
-| IDELAYCTRL                  |    0 |     0 |         5 |  0.00 |
+| PHY_CONTROL                 |    0 |     0 |         6 |  0.00 |
+| PHASER_REF                  |    0 |     0 |         6 |  0.00 |
+| OUT_FIFO                    |    0 |     0 |        24 |  0.00 |
+| IN_FIFO                     |    0 |     0 |        24 |  0.00 |
+| IDELAYCTRL                  |    0 |     0 |         6 |  0.00 |
 | IBUFDS                      |    0 |     0 |       202 |  0.00 |
-| PHASER_OUT/PHASER_OUT_PHY   |    0 |     0 |        20 |  0.00 |
-| PHASER_IN/PHASER_IN_PHY     |    0 |     0 |        20 |  0.00 |
-| IDELAYE2/IDELAYE2_FINEDELAY |    0 |     0 |       250 |  0.00 |
+| PHASER_OUT/PHASER_OUT_PHY   |    0 |     0 |        24 |  0.00 |
+| PHASER_IN/PHASER_IN_PHY     |    0 |     0 |        24 |  0.00 |
+| IDELAYE2/IDELAYE2_FINEDELAY |    0 |     0 |       300 |  0.00 |
 | ILOGIC                      |    0 |     0 |       210 |  0.00 |
 | OLOGIC                      |    0 |     0 |       210 |  0.00 |
 +-----------------------------+------+-------+-----------+-------+
@@ -118,12 +118,12 @@ Table of Contents
 |  Site Type | Used | Fixed | Available | Util% |
 +------------+------+-------+-----------+-------+
 | BUFGCTRL   |    0 |     0 |        32 |  0.00 |
-| BUFIO      |    0 |     0 |        20 |  0.00 |
-| MMCME2_ADV |    0 |     0 |         5 |  0.00 |
-| PLLE2_ADV  |    0 |     0 |         5 |  0.00 |
-| BUFMRCE    |    0 |     0 |        10 |  0.00 |
-| BUFHCE     |    0 |     0 |        72 |  0.00 |
-| BUFR       |    0 |     0 |        20 |  0.00 |
+| BUFIO      |    0 |     0 |        24 |  0.00 |
+| MMCME2_ADV |    0 |     0 |         6 |  0.00 |
+| PLLE2_ADV  |    0 |     0 |         6 |  0.00 |
+| BUFMRCE    |    0 |     0 |        12 |  0.00 |
+| BUFHCE     |    0 |     0 |        96 |  0.00 |
+| BUFR       |    0 |     0 |        24 |  0.00 |
 +------------+------+-------+-----------+-------+
 
 
